@@ -2,6 +2,16 @@
 
 Call a Proc with an arbitrary number of params. The Proc will only be passed the number of arguments that it takes. If a Proc is not passed in as an argument, the first argument will simply be returned.
 
+== Installation
+Add the following to your Gemfile:
+  gem 'call_with_procs'
+
+CallWithProcs can be mixed into any class by adding a line:
+  include CallWithProcs
+
+It is likely you will want to include CallWithProcs in your views. This can best be accomplished by adding in an initializer:
+  ActionView::Base.send :include, CallWithProcs
+
 == Sample Usage
 The best place to demonstrate the usage for CallWithParams is in the view:
   link_to "My URL", call_with_params(my_url, user)
