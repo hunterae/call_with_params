@@ -17,9 +17,9 @@ Jeweler::Tasks.new do |gem|
   gem.name = "call_with_params"
   gem.homepage = "http://github.com/hunterae/call_with_params"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
-  gem.email = "andrew.hunter@livingsocial.com"
+  gem.summary = %Q{Call a Proc with an arbitrary number of params}
+  gem.description = %Q{Call a Proc with an arbitrary number of params. The Proc will only be passed the number of arguments that it takes.}
+  gem.email = "hunterae@gmail.com"
   gem.authors = ["Andrew Hunter"]
   # dependencies defined in Gemfile
 end

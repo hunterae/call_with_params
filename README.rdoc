@@ -1,6 +1,33 @@
 = call_with_params
 
-Description goes here.
+Call a Proc with an arbitrary number of params. The Proc will only be passed the number of arguments that it takes. If a Proc is not passed in as an argument, the first argument will simply be returned.
+
+== Sample Usage
+The best place to demonstrate the usage for CallWithParams is in the view:
+  link_to "My URL", call_with_params(my_url, user)
+
+If url is not a Proc, the link will simply be to the specified "my_url" param. However, if it is a Proc, it will call that Proc with any additional params passed into the call_with_params method.
+
+Suppose, for example, that my_url is a locally defined Proc, such as:
+  <% my_url = Proc.new {|user| admin_user_path(user) } %>
+  <%= link_to "My URL", call_with_params(my_url, user) %>
+
+The Proc can also choose to not take all the parameters that are passed in:
+  <% my_url = Proc.new {|user, order_field| admin_user_path(user, :order => order_field) } %>
+  <%= link_to "My URL", call_with_params(my_url, user, "name", 1, 2, 3, 4, 5) %>
+
+Notice the Proc only takes the first two arguments that are passed in.
+
+
+Additionally, there is another method in CallWithParams called call_each_hash_value_with_params which can take hash of Procs, and invoke each Procs with the additional params passed into the call_each_hash_value_with_params method.
+
+For example:
+  <%= content_tag :tr, call_each_hash_value_with_params(:id => Proc.new {|user| "user-#{user.id}"}, :class => Proc.new { cycle("even", "odd") }) %>
+
+Any hash values that are not Procs will not be evaluated as Procs:
+  <%= content_tag :tr, call_each_hash_value_with_params(:id => Proc.new {|user| "user-#{user.id}"},
+                                                        :class => Proc.new { cycle("even", "odd") },
+                                                        :style => "color: red") %>
 
 == Contributing to call_with_params
  

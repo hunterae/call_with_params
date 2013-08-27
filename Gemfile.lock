@@ -43,7 +43,10 @@ GEM
     json (1.8.0)
     jwt (0.1.8)
       multi_json (>= 1.5)
+    metaclass (0.0.1)
     minitest (4.7.5)
+    mocha (0.14.0)
+      metaclass (~> 0.0.1)
     multi_json (1.7.9)
     multi_xml (0.5.5)
     multipart-post (1.2.0)
@@ -80,6 +83,7 @@ DEPENDENCIES
   activesupport (>= 3.0.0)
   debugger
   jeweler (~> 1.8.4)
+  mocha
   rdoc (~> 3.12)
   shoulda
   simplecov
