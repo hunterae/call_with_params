@@ -4,19 +4,19 @@ Call a Proc with an arbitrary number of params. The Proc will only be passed the
 
 == Installation
 Add the following to your Gemfile:
-  gem 'call_with_procs'
+  gem 'call_with_params'
 
-CallWithProcs can be mixed into any class by adding a line:
-  include CallWithProcs
+CallWithParams can be mixed into any class by adding a line:
+  include CallWithParams
 
-It is likely you will want to include CallWithProcs in your views. This can best be accomplished by adding in an initializer:
-  ActionView::Base.send :include, CallWithProcs
+It is likely you will want to include CallWithParams in your views. This can best be accomplished by adding in an initializer:
+  ActionView::Base.send :include, CallWithParams
 
 == Sample Usage
 The best place to demonstrate the usage for CallWithParams is in the view:
   link_to "My URL", call_with_params(my_url, user)
 
-If url is not a Proc, the link will simply be to the specified "my_url" param. However, if it is a Proc, it will call that Proc with any additional params passed into the call_with_params method.
+If "my_url" is not a Proc, the link will simply be the specified "my_url" param. However, if it is a Proc, it will call that Proc with any additional params passed into the call_with_params method.
 
 Suppose, for example, that my_url is a locally defined Proc, such as:
   <% my_url = Proc.new {|user| admin_user_path(user) } %>
