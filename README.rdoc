@@ -32,7 +32,8 @@ Notice the Proc only takes the first two arguments that are passed in.
 Additionally, there is another method in CallWithParams called call_each_hash_value_with_params which can take hash of Procs, and invoke each Procs with the additional params passed into the call_each_hash_value_with_params method.
 
 For example:
-  <%= content_tag :tr, call_each_hash_value_with_params(:id => Proc.new {|user| "user-#{user.id}"}, :class => Proc.new { cycle("even", "odd") }) %>
+  <%= content_tag :tr, call_each_hash_value_with_params(:id => Proc.new {|user| "user-#{user.id}"}, 
+                                                        :class => Proc.new { cycle("even", "odd") }) %>
 
 Any hash values that are not Procs will not be evaluated as Procs:
   <%= content_tag :tr, call_each_hash_value_with_params(:id => Proc.new {|user| "user-#{user.id}"},
