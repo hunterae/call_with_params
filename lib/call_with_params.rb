@@ -12,7 +12,7 @@ module CallWithParams
     if options.is_a?(Proc)
       call_with_params(options, *args)
     else
-      options.inject({}) { |hash, (k, v)| hash[k] = call_with_params(v, *args); hash}
+      options.inject(HashWithIndifferentAccess.new) { |hash, (k, v)| hash[k] = call_with_params(v, *args); hash}
     end
   end
 end

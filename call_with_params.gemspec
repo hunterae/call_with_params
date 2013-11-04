@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "call_with_params"
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Andrew Hunter"]
-  s.date = "2013-08-27"
+  s.date = "2013-11-04"
   s.description = "Call a Proc with an arbitrary number of params. The Proc will only be passed the number of arguments that it takes."
   s.email = "hunterae@gmail.com"
   s.extra_rdoc_files = [
